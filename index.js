@@ -8,7 +8,7 @@ const port = process.env.PORT || 8080;
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`)
 
-    const channel = await client.channels.fetch('1317781790303453244') // Channel for /userphone
+    const channel = await client.channels.fetch('1317785610785787907') // Channel for /userphone
 
     async function userphone() {
         await channel.sendSlash('247283454440374274', 'userphone') // Send /userphone command
