@@ -3,6 +3,8 @@ const { Client } = require('discord.js-selfbot-v13')
 const keep_alive = require('./keep_alive.js')
 const client = new Client()
 
+const port = process.env.PORT || 8080;
+
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`)
 
@@ -12,17 +14,17 @@ client.on('ready', async () => {
         await channel.sendSlash('247283454440374274', 'userphone') // Send /userphone command
         console.count('Userphone interaction started!')
 
-        // Wait a short moment before sending the message
+        // Wait for 5 seconds before sending the message
         setTimeout(async () => {
             await channel.send('discord.gg/look for submissive egirls') // Send the custom message
             console.log('Message sent in Userphone channel!')
 
-            // After sending the message, use /hangup
+            // Wait for another 5 seconds before sending /hangup
             setTimeout(async () => {
-                await channel.sendSlash('247283454440374274', 'hangup') // Send /hangup command to stop the process
+                await channel.sendSlash('247283454440374274', 'hangup') // Send /hangup command
                 console.log('Hangup command sent to stop the process.')
-            }, 3000) // Adjust delay if needed before sending /hangup
-        }, 3000) // Adjust delay if needed
+            }, 5000) // 5-second delay before sending /hangup
+        }, 5000) // 5-second delay before sending the message
     }
 
     function loop() {
