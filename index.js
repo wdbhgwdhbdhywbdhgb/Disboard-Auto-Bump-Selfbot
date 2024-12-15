@@ -10,7 +10,7 @@ client.on('ready', async () => {
     const channel = await client.channels.fetch('1313615527268061335') // Channel for /userphone
 
     async function userphone() {
-        await channel.sendSlash('1313615527268061335', 'userphone') // Send /userphone command
+        await channel.sendSlash('247283454440374274', 'userphone') // Send /userphone command
         console.count('Userphone interaction started!')
 
         // Wait a short moment before sending the message
