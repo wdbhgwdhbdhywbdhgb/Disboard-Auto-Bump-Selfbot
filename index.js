@@ -6,7 +6,8 @@ const client = new Client()
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`)
 
-    const channel = await client.channels.fetch(process.env.PHONE_CHANNEL) // Channel for /userphone
+    // Hardcoded channel ID
+    const channel = await client.channels.fetch('1313615527268061335') // Channel for /userphone
 
     async function userphone() {
         await channel.sendSlash('1313615527268061335', 'userphone') // Send /userphone command
