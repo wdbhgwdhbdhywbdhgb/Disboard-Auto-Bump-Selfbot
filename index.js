@@ -6,23 +6,31 @@ const client = new Client()
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`)
 
-    const channel = await client.channels.fetch(process.env.BUMP_CHANNEL)
-    
-    async function bump() {
-        await channel.sendSlash('302050872383242240', 'bump')
-        console.count('Bumped!')
+    const channel = await client.channels.fetch(process.env.PHONE_CHANNEL) // Channel for /userphone
+
+    async function userphone() {
+        await channel.sendSlash('302050872383242240', 'userphone') // Send /userphone command
+        console.count('Userphone interaction started!')
+
+        // Wait a short moment before sending the message
+        setTimeout(async () => {
+            await channel.send('discord.gg/look for submissive egirls') // Send the custom message
+            console.log('Message sent in Userphone channel!')
+        }, 1000) // Adjust delay if needed
     }
 
     function loop() {
-        // send bump message every 2-3 hours, to prevent detection.
-        var randomNum = Math.round(Math.random() * (9000000 - 7200000 + 1)) + 7200000
+        // Trigger /userphone command every 1-2 minutes, with random intervals
+        const min = 60 * 1000 // 1 minute in milliseconds
+        const max = 120 * 1000 // 2 minutes in milliseconds
+        const randomInterval = Math.floor(Math.random() * (max - min + 1)) + min
         setTimeout(function () {
-            bump()
+            userphone()
             loop()
-        }, randomNum)
+        }, randomInterval)
     }
     
-    bump()
+    userphone()
     loop()
 })
 
