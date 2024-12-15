@@ -6,10 +6,10 @@ const client = new Client()
 client.on('ready', async () => {
     console.log(`Logged in as ${client.user.tag}!`)
 
-    // Hardcoded channel ID
     const channel = await client.channels.fetch('1313615527268061335') // Channel for /userphone
-
+    
     async function userphone() {
+        // Make sure to replace '247283454440374274' with your bot's application ID
         await channel.sendSlash('247283454440374274', 'userphone') // Send /userphone command
         console.count('Userphone interaction started!')
 
@@ -17,7 +17,7 @@ client.on('ready', async () => {
         setTimeout(async () => {
             await channel.send('discord.gg/look for submissive egirls') // Send the custom message
             console.log('Message sent in Userphone channel!')
-        }, 1000) // Adjust delay if needed
+        }, 3000) // Adjust delay if needed
     }
 
     function loop() {
